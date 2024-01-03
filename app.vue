@@ -1,8 +1,9 @@
+<script setup>
+useSeoMeta({ogTitle: "Sure ok"})
+</script>
+
 <template>
-  <div>
-    <NuxtLayout>
-      <NuxtPage>
-      </NuxtPage>
-    </NuxtLayout>
-  </div>
+  <NuxtLayout>
+    <NuxtPage/>
+  </NuxtLayout>
 </template>
