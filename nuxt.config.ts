@@ -1,8 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import {useLogger} from "@nuxt/kit";
+
 export default defineNuxtConfig({
     devtools: {enabled: true},
     runtimeConfig: {
-        apiBase: 'https://qared.int.politico.com/spring/cms-api/v1/',
+        api: {
+            base: 'https://qared.int.politico.com',
+            path: '/spring/cms-api/v1/'
+        },
         // Keys within public, will be also exposed to the client-side
         public: {
             // Gets slapped on api calls but not used anywhere
@@ -25,4 +30,9 @@ export default defineNuxtConfig({
     //         proxy: 'https://qared.int.politico.com/spring/cms-api/v1/lumos/**'
     //     }
     // }
+    hooks: {
+        close: () => {
+            useLogger('lifecycle').info("Shutting down")
+        }
+    }
 })
